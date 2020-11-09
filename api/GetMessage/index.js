@@ -50,7 +50,9 @@ module.exports = async function (context, req) {
 
     context.res = {
         body: {
-            text: "Hello from the API"
+            text: "Hello from the API",
+            test1: process.env["DATABASE_USER"],
+            test2: process.env["DATABASE_PASSWORD"],
         }
     };
 }

@@ -10,5 +10,5 @@
     "tedious": "^9.2.1"
   },
   "devDependencies": {},
-  "proxy": "http://localhost:7071/"
+  "proxy": "http://localhost:7071"
 }

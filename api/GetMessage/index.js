@@ -18,7 +18,6 @@ module.exports = async function (context, req) {
       };
 
       const connection = new Connection(config);
-
       connection.on("connect", err => {
         if (err) {
           console.error(err.message);
@@ -28,7 +27,6 @@ module.exports = async function (context, req) {
       });
 
       function insertDatabase() {
-        // Read all rows from table
         const request = new Request(
           `INSERT INTO Test (NuType, Payload) VALUES ('test1', 'test2')`,
           (err, rowCount) => {

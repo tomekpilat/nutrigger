@@ -1,12 +1,13 @@
 const { Connection, Request } = require("tedious");
 
+
 module.exports = async function (context, req) {
       // Create connection to database
       const config = {
         authentication: {
           options: {
-            userName: process.env.DATABASE_USER,
-            password: process.env.DATABASE_PASSWORD
+            userName: process.env["DATABASE_USER"],
+            password: process.env["DATABASE_PASSWORD"]
           },
           type: "default"
         },

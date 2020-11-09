@@ -6,6 +6,9 @@
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "tedious": "^9.2.1"
+  },
+  "devDependencies": {},
+  "proxy": "http://localhost:7071/"
 }

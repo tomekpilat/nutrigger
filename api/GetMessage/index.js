@@ -2,6 +2,7 @@ const { Connection, Request } = require("tedious");
 
 
 module.exports = async function (context, req) {
+      // Create connection to database
       const config = {
         authentication: {
           options: {
@@ -18,7 +19,6 @@ module.exports = async function (context, req) {
       };
 
       const connection = new Connection(config);
-      try {
       connection.on("connect", err => {
         if (err) {
           console.error(err.message);
@@ -47,13 +47,10 @@ module.exports = async function (context, req) {
 
         connection.execSql(request);
       }
-    } catch (e) {
-      context.res = {
-          body: {
-              text: "Hello from the API",
-              error: JSON.stringify(e);
-          }
-      };
-      
-    }
+
+    context.res = {
+        body: {
+            text: "Hello from the API"
+        }
+    };
 }

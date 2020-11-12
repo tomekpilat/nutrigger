@@ -15,11 +15,17 @@ function App() {
     setValue(event.target.value);
   }
 
+  const nudgeMe = () => {
+    fetch('http://69522cbc3c88.ngrok.io/api/proactive')
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <input type="text" onChange={onChangeHandler} />
         <button onClick={() => add(value)}>Post event</button>
+
+        <button onClick={nudgeMe}>Nudge me</button>
       </header>
     </div>
   );

@@ -1,17 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
-const add = async () => {
-  await fetch('/api/message');
+const add = async (value:any) => {
+  await fetch('/api/message', {
+    method: 'POST',
+    body: value
+  });
 }
 
 function App() {
+  const [value, setValue] = useState();
+  
+  const onChangeHandler = (event:any) => {
+    setValue(event.target.value);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <button onClick={add}>Add leaf</button>
-        <button>Remove leaf</button>
-        <button>Send a nudge</button>
+        <input type="text" onChange={onChangeHandler} />
+        <button onClick={() => add(value)}>Post event</button>
       </header>
     </div>
   );
